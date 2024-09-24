@@ -1,8 +1,8 @@
-## Detailed Overview of Lift & Shift Web App on AWS Cloud
+## Deploying Multi-Tier Application using Terraform on AWS Cloud
 
 Deployed a multi-tier web application on AWS using Terraform to provision infrastructure. Managed EC2 instances for both web and application layers, utilized RDS for scalable database management, configured Elastic Load Balancing (ELB) for traffic distribution, and implemented Auto Scaling to dynamically adjust resources based on demand, ensuring high availability and performance.
 
-Terraform: Terraform is an Infrastructure as Code (IaC) tool that allows us to define and provision our cloud infrastructure through configuration files. 
+*Terraform:* Terraform is an Infrastructure as Code (IaC) tool that allows us to define and provision our cloud infrastructure through configuration files. 
 
 ### Resources created in this project:
 ##### 1. Virtual Private Cloud (VPC):
@@ -39,14 +39,14 @@ Terraform: Terraform is an Infrastructure as Code (IaC) tool that allows us to d
 ![Project Diagram](https://github.com/ahsan598/aws-lift-and-shift-webapp/blob/main/aws-lift-and-shift-webapp.png)
 
 
-### Environment Setup:
+## I. Environment Setup:
 
-##### 1. Install Terraform:
+#### 1. Install Terraform:
 - Install Terraform on your local machine or CI/CD server using the official Terraform installation instructions.
 - Verify Terraform installation by running terraform --version in your terminal.
 - Initialize Terraform by running terraform init in your project directory.
 
-##### 2. Install Terraform:
+#### 2. Install Terraform:
 - Configure AWS CLI with your AWS credentials by running aws configure in your terminal.
 - Verify AWS CLI configuration by running aws sts get-caller-identity in your terminal.
 - AWS Command Line Interface (CLI) allows Terraform to interact with your AWS account.
@@ -54,40 +54,40 @@ Terraform: Terraform is an Infrastructure as Code (IaC) tool that allows us to d
 
 
 
-### Implementation:
+## II. Implementation:
 
-##### 1. Define the EC2 Instances (Web & Application Layers):
+#### 1. Define the EC2 Instances (Web & Application Layers):
 - Use Terraform to create EC2 instances for both the web and application layers
 - EC2 (Elastic Compute Cloud) provides scalable computing capacity in AWS. The web layer will serve the frontend
 (e.g., Apache, Nginx), and the app layer handles backend processing.
 - EC2 instances are implicitly created through the Launch Template inside the Auto Scaling Group (asg.tf).
 
 
-##### 2. Provision RDS for Database:
+#### 2. Provision RDS for Database:
 
 - Use Terraform to create an RDS (Relational Database Service) instance to manage your database.
 - RDS automates database management tasks like backups, patching, and scaling, providing a scalable and reliable database layer.
 
 
-##### 3. Create an Elastic Load Balancer (ELB):
+#### 3. Create an Elastic Load Balancer (ELB):
 
 - Use Terraform to create an ELB to distribute incoming traffic across multiple EC2 instances.
 - ELB automatically distributes incoming traffic across multiple targets (EC2 instances), improving availability and fault tolerance.
 
 
-##### 4. Set Up Auto Scaling:
+#### 4. Set Up Auto Scaling:
 
 - Create an Auto Scaling Group to automatically add or remove EC2 instances based on traffic demand.
 - Auto Scaling ensures that the number of EC2 instances adjusts to match traffic demand, maintaining application performance and controlling costs.
 
 
-##### 5. Set Up VPC, Subnets, and Security Groups:
+#### 5. Set Up VPC, Subnets, and Security Groups:
 
 - Define a VPC (Virtual Private Cloud), subnets, and security groups in Terraform to control the network traffic and secure your instances.
 - Security Groups control inbound and outbound traffic to your instances, and VPC is used to provision a logically isolated network for your AWS resources.
 
 
-##### 6. Run Terraform Commands:
+#### 6. Run Terraform Commands:
 
 After defining all the resources, run the following Terraform commands:
 - `terraform init`: Initializes the Terraform project and downloads required providers.
