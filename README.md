@@ -43,15 +43,13 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 #### 1. Install Terraform:
 - Install Terraform on your local machine or CI/CD server using the official Terraform installation instructions.
-- Verify Terraform installation by running terraform --version in your terminal.
-- Initialize Terraform by running terraform init in your project directory.
+- Verify Terraform installation by running `terraform --version` in your terminal.
+- Initialize Terraform by running `terraform init` in your project directory.
 
-#### 2. Install Terraform:
+#### 2. AWS CLI Configuration:
 - Configure AWS CLI with your AWS credentials by running aws configure in your terminal.
-- Verify AWS CLI configuration by running aws sts get-caller-identity in your terminal.
-- AWS Command Line Interface (CLI) allows Terraform to interact with your AWS account.
 - Run `aws configure` to input your AWS access key, secret key, region, and output format.
-
+- AWS Command Line Interface (CLI) allows Terraform to interact with your AWS account.
 
 
 ## IV. Implementation:
@@ -60,7 +58,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 - Use Terraform to create EC2 instances for both the web and application layers
 - EC2 (Elastic Compute Cloud) provides scalable computing capacity in AWS. The web layer will serve the frontend
 (e.g., Apache, Nginx), and the app layer handles backend processing.
-- EC2 instances are implicitly created through the Launch Template inside the Auto Scaling Group (asg.tf).
+- EC2 instances are implicitly created through the Launch Template inside the Auto Scaling Group.
 
 
 #### 2. Provision RDS for Database:
