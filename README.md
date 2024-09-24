@@ -2,9 +2,9 @@
 
 Deployed a multi-tier web application on AWS using Terraform to provision infrastructure. Managed EC2 instances for both web and application layers, utilized RDS for scalable database management, configured Elastic Load Balancing (ELB) for traffic distribution, and implemented Auto Scaling to dynamically adjust resources based on demand, ensuring high availability and performance.
 
-*Terraform:* Terraform is an Infrastructure as Code (IaC) tool that allows us to define and provision our cloud infrastructure through configuration files. 
+**Terraform:** Terraform is an Infrastructure as Code (IaC) tool that allows us to define and provision our cloud infrastructure through configuration files. 
 
-### Resources created in this project:
+### I. Resources created in this project:
 ##### 1. Virtual Private Cloud (VPC):
 - Definition: VPC allows you to launch AWS resources into a virtual network that we've defined.
 - Usage: The web application was deployed within a VPC to ensure network isolation and security.
@@ -33,13 +33,13 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 
 
-### Project Architecture:
+### II. Project Architecture:
 ##### Deploying a VPC, Security Groups, EC2, ELB, Auto Scaling, RDS
 
 ![Project Diagram](https://github.com/ahsan598/aws-lift-and-shift-webapp/blob/main/aws-lift-and-shift-webapp.png)
 
 
-## I. Environment Setup:
+## III. Environment Setup:
 
 #### 1. Install Terraform:
 - Install Terraform on your local machine or CI/CD server using the official Terraform installation instructions.
@@ -54,7 +54,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 
 
-## II. Implementation:
+## IV. Implementation:
 
 #### 1. Define the EC2 Instances (Web & Application Layers):
 - Use Terraform to create EC2 instances for both the web and application layers
