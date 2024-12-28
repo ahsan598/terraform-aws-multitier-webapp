@@ -6,22 +6,20 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 ### I. Resources created in this project:
 ##### 1. Virtual Private Cloud (VPC):
-- Definition: VPC allows you to launch AWS resources into a virtual network that we've defined.
-- Usage: The web application was deployed within a VPC to ensure network isolation and security.
-- Components: Subnets (public and private), Internet Gateway, NAT Gateway, Route Tables, and Network ACLs were configured to control traffic flow and enhance security.
+- VPC allows you to launch AWS resources into a virtual network that we've defined. The web application was deployed within a VPC to ensure network isolation and security.
+- Subnets (public and private), NAT Gateway, and Security Groups were configured to control traffic flow and enhance security.
 
 
 ##### 2. Elastic Cloud Compute (EC2):
-- Definition: Amazon EC2 provides scalable computing capacity in the AWS cloud, allowing developers to run virtual servers (instances) to host applications. EC2 enables you to increase or decrease capacity within minutes, thus providing a flexible and cost-effective way to manage computing resources.
+- Amazon EC2 provides scalable computing capacity in the AWS cloud, allowing developers to run virtual servers (instances) to host applications. EC2 enables you to increase or decrease capacity within minutes, thus providing a flexible and cost-effective way to manage computing resources.
 
 
 ##### 3. Security Groups:
-- Definition: Security Groups act as virtual firewalls for your Amazon EC2 instances, controlling inbound and outbound traffic. They provide stateful filtering, allowing specific traffic based on IP ranges, protocols, and ports. Security groups integrate with your Virtual Private Cloud (VPC) to enhance network security by allowing detailed access control for your instances.
+- Security Groups act as virtual firewalls for your Amazon EC2 instances, controlling inbound and outbound traffic. They provide stateful filtering, allowing specific traffic based on IP ranges, protocols, and ports. Security groups integrate with your Virtual Private Cloud (VPC) to enhance network security by allowing detailed access control for your instances.
 
 
 ##### 4. Amazon Relational Database Service (RDS):
-- Definition: Amazon RDS is a managed relational database service that supports several database engines including MySQL, PostgreSQL, Oracle, SQL Server, and MariaDB. It simplifies database management tasks such as backups, patching, and scaling.
-- Components: Multi-AZ deployment for high availability, automated backups, and read replicas for improved performance.
+- Amazon RDS is a managed relational database service that supports several database engines including MySQL, PostgreSQL, Oracle, SQL Server, and MariaDB. It simplifies database management tasks such as backups, patching, and scaling.
 
 
 
