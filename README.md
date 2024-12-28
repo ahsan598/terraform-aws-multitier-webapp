@@ -28,7 +28,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 ### II. Project Architecture:
 ##### Deploying a VPC, Security Groups, EC2, ELB, Auto Scaling, RDS
 
-![Project Diagram](https://github.com/ahsan598/provision_webapp_using_terraform/blob/main/multi-tier app.png)
+![Project Diagram](https://github.com/ahsan598/provision-webapp-using-terraform/blob/main/multi-tier%20app.png)
 
 
 ## III. Environment Setup:
