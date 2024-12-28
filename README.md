@@ -1,6 +1,6 @@
 ## Deploying Multi-Tier Application using Terraform on AWS Cloud
 
-Deployed a multi-tier web application on AWS using Terraform to provision infrastructure. Managed EC2 instances for both web and application layers, utilized RDS for scalable database management, configured Elastic Load Balancing (ELB) for traffic distribution, and implemented Auto Scaling to dynamically adjust resources based on demand, ensuring high availability and performance.
+Deployed a multi-tier web application on AWS using Terraform to provision infrastructure. Configured VPC for network isolation, managed EC2 instances for the application, set up Security Groups (SG) for controlled access, and utilized RDS for scalable database management, ensuring a secure and efficient deployment.
 
 **Terraform:** Terraform is an Infrastructure as Code (IaC) tool that allows us to define and provision our cloud infrastructure through configuration files. 
 
@@ -15,19 +15,11 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 - Definition: Amazon EC2 provides scalable computing capacity in the AWS cloud, allowing developers to run virtual servers (instances) to host applications. EC2 enables you to increase or decrease capacity within minutes, thus providing a flexible and cost-effective way to manage computing resources.
 
 
-##### 3. Auto Scaling:
-- Definition: AWS Auto Scaling helps maintain application availability by automatically adjusting Amazon EC2 capacity to match demand. It provides dynamic and scheduled scaling, health checks to replace unhealthy instances, and cost optimization by ensuring the use of necessary resources only when needed.
-
-
-##### 4. Security Groups:
+##### 3. Security Groups:
 - Definition: Security Groups act as virtual firewalls for your Amazon EC2 instances, controlling inbound and outbound traffic. They provide stateful filtering, allowing specific traffic based on IP ranges, protocols, and ports. Security groups integrate with your Virtual Private Cloud (VPC) to enhance network security by allowing detailed access control for your instances.
 
 
-##### 5. Application Load Balancer (ALB):
-- Definition: The Application Load Balancer (ALB) is a managed load balancing service that operates at the application layer (Layer 7). It distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones.
-
-
-##### 6. Amazon Relational Database Service (RDS):
+##### 4. Amazon Relational Database Service (RDS):
 - Definition: Amazon RDS is a managed relational database service that supports several database engines including MySQL, PostgreSQL, Oracle, SQL Server, and MariaDB. It simplifies database management tasks such as backups, patching, and scaling.
 - Components: Multi-AZ deployment for high availability, automated backups, and read replicas for improved performance.
 
@@ -36,7 +28,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 ### II. Project Architecture:
 ##### Deploying a VPC, Security Groups, EC2, ELB, Auto Scaling, RDS
 
-![Project Diagram](https://github.com/ahsan598/provision_webapp_using_terraform/blob/main/processflow.png)
+![Project Diagram](https://github.com/ahsan598/provision_webapp_using_terraform/blob/main/multi-tier app.png)
 
 
 ## III. Environment Setup:
@@ -54,40 +46,52 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 ## IV. Implementation:
 
-#### 1. Define the EC2 Instances (Web & Application Layers):
-- Use Terraform to create EC2 instances for both the web and application layers
-- EC2 (Elastic Compute Cloud) provides scalable computing capacity in AWS. The web layer will serve the frontend
-(e.g., Apache, Nginx), and the app layer handles backend processing.
-- EC2 instances are implicitly created through the Launch Template inside the Auto Scaling Group.
+#### Step 1: Initialize Terraform
+- Navigate to your Terraform project directory.
+- Run `terraform init` to initialize Terraform and download provider plugins.
 
 
-#### 2. Provision RDS for Database:
-
-- Use Terraform to create an RDS (Relational Database Service) instance to manage your database.
-- RDS automates database management tasks like backups, patching, and scaling, providing a scalable and reliable database layer.
-
-
-#### 3. Create an Elastic Load Balancer (ELB):
-
-- Use Terraform to create an ELB to distribute incoming traffic across multiple EC2 instances.
-- ELB automatically distributes incoming traffic across multiple targets (EC2 instances), improving availability and fault tolerance.
+#### Step 2: Plan the Infrastructure
+- Ensure all .tf files (e.g., `main.tf`, `variables.tf`, `outputs.tf`, etc.) are properly configured.
+- Use terraform plan to review the resources Terraform will create.
 
 
-#### 4. Set Up Auto Scaling:
-
-- Create an Auto Scaling Group to automatically add or remove EC2 instances based on traffic demand.
-- Auto Scaling ensures that the number of EC2 instances adjusts to match traffic demand, maintaining application performance and controlling costs.
-
-
-#### 5. Set Up VPC, Subnets, and Security Groups:
-
-- Define a VPC (Virtual Private Cloud), subnets, and security groups in Terraform to control the network traffic and secure your instances.
-- Security Groups control inbound and outbound traffic to your instances, and VPC is used to provision a logically isolated network for your AWS resources.
+#### Step 3: Provision VPC
+- Execute `terraform apply` with only the VPC module configured to ensure networking components (VPC, subnets, route tables, etc.) are correctly created.
+- Verify the created VPC and subnets in the AWS console.
 
 
-#### 6. Run Terraform Commands:
+#### Step 4: Add Security Groups
+- Define security groups for EC2 and RDS within the respective module directories.
+- Ensure appropriate ingress/egress rules are applied (e.g., open port 80 for HTTP and port 3306 for RDS).
 
+
+#### Step 5: Provision EC2 Instances
+- Use the outputs from the VPC module (e.g., `vpc_id`, `public_subnet_ids`) to associate EC2 instances with the VPC and subnets.
+- Apply the EC2 module changes using `terraform apply`.
+- Test SSH access using the provided key pair.
+
+
+#### Step 6: Provision RDS
+- Use the private subnets output from the VPC module (`private_subnet_ids`) for the RDS instance.
+- Configure the RDS module with database parameters like `db_name`, `db_username`, and `db_password`.
+- Apply the RDS module changes using `terraform apply`.
+- Verify the RDS instance and connectivity.
+
+
+#### Step 7: Verify Outputs
+- Check the `outputs.tf` file for outputs like EC2 instance IDs, public IPs, and RDS endpoints.
+- Run `terraform output` to view and validate the outputs.
+
+
+#### Step 8: Test Connectivity
+- Access the EC2 instance using SSH.
+- Verify RDS connectivity from the EC2 instance (if required, install a MySQL client on EC2).
+
+
+#### Step 9: Run Terraform Commands:
 After defining all the resources, run the following Terraform commands:
-- `terraform init`: Initializes the Terraform project and downloads required providers.
-- `terraform plan`: Creates an execution plan, showing what resources will be created.
-- `terraform apply`: Applies the execution plan, provisioning the defined AWS infrastructure.
+- `terraform init`: Initializes the Terraform project by downloading the necessary provider plugins and preparing the working directory.
+- `terraform plan`: Generates and displays the execution plan, showing the resources that Terraform will create, update, or destroy without making actual changes.
+- `terraform apply`: Applies the changes described in the execution plan, provisioning the resources defined in your .tf files.
+- `terraform destroy`: Removes all resources that Terraform manages, as defined in your current configuration files.
