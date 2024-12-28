@@ -87,7 +87,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 - Verify RDS connectivity from the EC2 instance (if required, install a MySQL client on EC2).
 
 
-#### Step 9: Terraform Commands:
+## V. Terraform Commands:
 - `terraform init`: Initializes the Terraform project by downloading the necessary provider plugins and preparing the working directory.
 - `terraform plan`: Generates and displays the execution plan, showing the resources that Terraform will create, update, or destroy without making actual changes.
 - `terraform apply`: Applies the changes described in the execution plan, provisioning the resources defined in your .tf files.
