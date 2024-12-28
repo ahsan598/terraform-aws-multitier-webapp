@@ -24,7 +24,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 
 ### II. Project Architecture:
-##### Deploying a VPC, Security Groups, EC2, ELB, Auto Scaling, RDS
+##### Deploying a VPC, Security Groups, EC2, and RDS
 
 ![Project Diagram](https://github.com/ahsan598/provision-webapp-using-terraform/blob/main/multi-tier%20app.png)
 
@@ -34,10 +34,10 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 #### 1. Install Terraform:
 - Install Terraform on your local machine or CI/CD server using the official Terraform installation instructions.
 - Verify Terraform installation by running `terraform --version` in your terminal.
-- Initialize Terraform by running `terraform init` in your project directory.
+
 
 #### 2. AWS CLI Configuration:
-- Configure AWS CLI with your AWS credentials by running aws configure in your terminal.
+- Configure AWS CLI with your AWS credentials in your terminal.
 - Run `aws configure` to input your AWS access key, secret key, region, and output format.
 - AWS Command Line Interface (CLI) allows Terraform to interact with your AWS account.
 
@@ -55,7 +55,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 
 #### Step 3: Provision VPC
-- Execute `terraform apply` with only the VPC module configured to ensure networking components (VPC, subnets, route tables, etc.) are correctly created.
+- Execute `terraform apply` with only the VPC module configured to ensure networking components (VPC, subnets, etc.) are correctly created.
 - Verify the created VPC and subnets in the AWS console.
 
 
@@ -87,8 +87,7 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 - Verify RDS connectivity from the EC2 instance (if required, install a MySQL client on EC2).
 
 
-#### Step 9: Run Terraform Commands:
-After defining all the resources, run the following Terraform commands:
+#### Step 9: Terraform Commands:
 - `terraform init`: Initializes the Terraform project by downloading the necessary provider plugins and preparing the working directory.
 - `terraform plan`: Generates and displays the execution plan, showing the resources that Terraform will create, update, or destroy without making actual changes.
 - `terraform apply`: Applies the changes described in the execution plan, provisioning the resources defined in your .tf files.
