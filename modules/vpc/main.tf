@@ -19,7 +19,7 @@ resource "aws_subnet" "private" {
 }
 
 # NAT Gateway for Private Subnets
-resource "aws_nat_gateway" "example" {
+resource "aws_nat_gateway" "ps_nat" {
   allocation_id = aws_eip.nat.id
   subnet_id     = values(aws_subnet.public)[0].id  # Access the first subnet's id
 }
