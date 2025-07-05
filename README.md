@@ -1,94 +1,149 @@
-## Deploying Multi-Tier Application using Terraform on AWS Cloud
+# 🌐 Multi-Tier Web Application Deployment on AWS using Terraform
 
-Deployed a multi-tier web application on AWS using Terraform to provision infrastructure. Configured VPC for network isolation, managed EC2 instances for the application, set up Security Groups (SG) for controlled access, and utilized RDS for scalable database management, ensuring a secure and efficient deployment.
+This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for Infrastructure as Code (IaC). The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
-**Terraform:** Terraform is an Infrastructure as Code (IaC) tool that allows us to define and provision our cloud infrastructure through configuration files. 
+---
 
-### I. Resources created in this project:
-##### 1. Virtual Private Cloud (VPC):
-- VPC allows you to launch AWS resources into a virtual network that we've defined. The web application was deployed within a VPC to ensure network isolation and security.
-- Subnets (public and private), NAT Gateway, and Security Groups were configured to control traffic flow and enhance security.
+## 📌 Project Objectives
 
+- Automate AWS infrastructure provisioning using Terraform
+- Deploy a scalable and secure **multi-tier architecture**
+- Practice **Infrastructure as Code** (IaC) using best practices
+- Understand real-world cloud components like **VPC, EC2, RDS, Security Groups**
 
-##### 2. Elastic Cloud Compute (EC2):
-- Amazon EC2 provides scalable computing capacity in the AWS cloud, allowing developers to run virtual servers (instances) to host applications. EC2 enables you to increase or decrease capacity within minutes, thus providing a flexible and cost-effective way to manage computing resources.
+---
 
+## 🧰 Tools & Technologies Used
 
-##### 3. Security Groups:
-- Security Groups act as virtual firewalls for your Amazon EC2 instances, controlling inbound and outbound traffic. They provide stateful filtering, allowing specific traffic based on IP ranges, protocols, and ports. Security groups integrate with your Virtual Private Cloud (VPC) to enhance network security by allowing detailed access control for your instances.
+| Tool / Service | Purpose                                                           |
+|----------------|-------------------------------------------------------------------|
+| Terraform      | Infrastructure as Code (IaC) to provision AWS resources           |
+| AWS VPC        | Provides isolated networking environment for the app              |
+| AWS EC2        | Hosts the frontend and backend application servers                |
+| AWS RDS        | Managed relational database service (e.g., MySQL or PostgreSQL)   |
+| Security Groups| Acts as a virtual firewall to control inbound and outbound access |
+| AWS IAM        | Manages roles and permissions                                     |
 
+---
 
-##### 4. Amazon Relational Database Service (RDS):
-- Amazon RDS is a managed relational database service that supports several database engines including MySQL, PostgreSQL, Oracle, SQL Server, and MariaDB. It simplifies database management tasks such as backups, patching, and scaling.
-
-
-
-### II. Project Architecture:
-##### Deploying a VPC, Security Groups, EC2, and RDS
-
-![Project Diagram](https://github.com/ahsan598/provision-webapp-using-terraform/blob/main/multi-tier%20app.png)
-
-
-## III. Environment Setup:
-
-#### 1. Install Terraform:
-- Install Terraform on your local machine or CI/CD server using the official Terraform installation instructions.
-- Verify Terraform installation by running `terraform --version` in your terminal.
+## 🧱 Architecture Overview
 
 
-#### 2. AWS CLI Configuration:
-- Configure AWS CLI with your AWS credentials in your terminal.
-- Run `aws configure` to input your AWS access key, secret key, region, and output format.
-- AWS Command Line Interface (CLI) allows Terraform to interact with your AWS account.
+            +-----------------------------+
+            |       Internet Gateway      |
+            +-------------+---------------+
+                          |
+                  +-------v--------+
+                  |  Public Subnet |
+                  |(Web Tier - EC2)|
+                  +-------+--------+
+                          |
+            +-------------v-------------+
+            |     Private Subnet        |
+            |  (App Tier / DB - RDS)    |
+            +---------------------------+
+
+        - VPC spans multiple subnets (public & private)
+        - Security Groups restrict traffic between tiers
 
 
-## IV. Implementation:
-
-#### Step 1: Initialize Terraform
-- Navigate to your Terraform project directory.
-- Run `terraform init` to initialize Terraform and download provider plugins.
+![Project Diagram](https://github.com/ahsan598/terraform-aws-webapp-stack/blob/main/multi-tier%20app.png)
 
 
-#### Step 2: Plan the Infrastructure
-- Ensure all .tf files (e.g., `main.tf`, `variables.tf`, `outputs.tf`, etc.) are properly configured.
-- Use terraform plan to review the resources Terraform will create.
+
+---
+
+## 🗂️ Project Structure
+
+```
+multi-tier-terraform/
+├── main.tf                # Calls modules and connects everything
+├── variables.tf           # Input variables for main config
+├── outputs.tf             # Outputs from modules
+├── terraform.tfvars       # Values for the variables
+├── modules/               # Reusable modules
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   ├── ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── rds/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+└── README.md              # Project documentation
+```
 
 
-#### Step 3: Provision VPC
-- Execute `terraform apply` with only the VPC module configured to ensure networking components (VPC, subnets, etc.) are correctly created.
-- Verify the created VPC and subnets in the AWS console.
+---
+
+## ⚙️ What This Project Does
+
+1. **Creates a custom VPC** with public and private subnets.
+2. **Launches EC2 instances** in the public subnet for frontend/backend.
+3. **Configures Security Groups** to:
+   - Allow HTTP (port 80) access from the internet to EC2
+   - Allow EC2 to access RDS on port 3306 (or 5432 for PostgreSQL)
+4. **Deploys an RDS instance** in the private subnet.
+5. Outputs useful details like public IP of EC2 and DB endpoint.
+
+---
+
+## 🚀 How to Run This Project
+
+> Make sure you have [Terraform](https://developer.hashicorp.com/terraform/downloads) and an [AWS account](https://aws.amazon.com/) with configured credentials (`aws configure`).
 
 
-#### Step 4: Add Security Groups
-- Define security groups for EC2 and RDS within the respective module directories.
-- Ensure appropriate ingress/egress rules are applied (e.g., open port 80 for HTTP and port 3306 for RDS).
+### Step 1: Clone the repository
+```bash
+git clone https://github.com/yourusername/multi-tier-terraform.git
+cd multi-tier-terraform
+```
+
+### Step 2: Initialize Terraform
+```bash
+terraform init
+```
+
+### Step 3: Review and apply the plan
+```bash
+terraform plan
+terraform apply
+```
+
+### Step 4: Confirm outputs
+#### Terraform will display outputs like:
+```bash
+ec2_public_ip = "13.234.56.78"
+rds_endpoint  = "mydb.xxxxxx.us-east-1.rds.amazonaws.com"
+```
+
+### Step 5: Clean up (Optional)
+```bash
+terraform destroy
+```
 
 
-#### Step 5: Provision EC2 Instances
-- Use the outputs from the VPC module (e.g., `vpc_id`, `public_subnet_ids`) to associate EC2 instances with the VPC and subnets.
-- Apply the EC2 module changes using `terraform apply`.
-- Test SSH access using the provided key pair.
+### 🧠 What You’ll Learn
+- Building real-world infrastructure using Terraform modules
+- Using input variables and outputs efficiently
+- Structuring Terraform projects for clarity and reusability
+- Understanding cloud networking and tiered architecture
+- Applying security best practices with IAM and SGs
 
 
-#### Step 6: Provision RDS
-- Use the private subnets output from the VPC module (`private_subnet_ids`) for the RDS instance.
-- Configure the RDS module with database parameters like `db_name`, `db_username`, and `db_password`.
-- Apply the RDS module changes using `terraform apply`.
-- Verify the RDS instance and connectivity.
+### 💡 Ideas to Extend This Project
+- Add Terraform modules to split logic (network, compute, DB)
+- Add Bastion Host or NAT Gateway for private subnet access
+- Use Terraform Cloud or S3 backend for remote state management
+- Integrate with Ansible or Jenkins for app deployment
+- Deploy autoscaling groups and load balancer (ALB)
 
-
-#### Step 7: Verify Outputs
-- Check the `outputs.tf` file for outputs like EC2 instance IDs, public IPs, and RDS endpoints.
-- Run `terraform output` to view and validate the outputs.
-
-
-#### Step 8: Test Connectivity
-- Access the EC2 instance using SSH.
-- Verify RDS connectivity from the EC2 instance (if required, install a MySQL client on EC2).
-
-
-## V. Terraform Commands:
-- `terraform init`: Initializes the Terraform project by downloading the necessary provider plugins and preparing the working directory.
-- `terraform plan`: Generates and displays the execution plan, showing the resources that Terraform will create, update, or destroy without making actual changes.
-- `terraform apply`: Applies the changes described in the execution plan, provisioning the resources defined in your .tf files.
-- `terraform destroy`: Removes all resources that Terraform manages, as defined in your current configuration files.
+### 📚 Resources to Learn More
+- [Terraform AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+- [Terraform VPC Tutorial](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create)
+- [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/)
+- [Learn Terraform Modules](https://developer.hashicorp.com/terraform/language/modules)
