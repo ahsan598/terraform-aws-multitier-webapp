@@ -24,9 +24,25 @@ Deployed a multi-tier web application on AWS using Terraform to provision infras
 
 
 ### II. Project Architecture:
-##### Deploying a VPC, Security Groups, EC2, and RDS
 
-![Project Diagram](https://github.com/ahsan598/terraform-aws-webapp-stack/blob/main/multi-tier%20app.png)
+
+            +-----------------------------+
+            |       Internet Gateway      |
+            +-------------+---------------+
+                          |
+                  +-------v--------+
+                  |  Public Subnet |
+                  |(Web Tier - EC2)|
+                  +-------+--------+
+                          |
+            +-------------v-------------+
+            |     Private Subnet        |
+            |  (App Tier / DB - RDS)    |
+            +---------------------------+
+
+        - VPC spans multiple subnets (public & private)
+        - Security Groups restrict traffic between tiers
+
 
 
 ## III. Environment Setup:
