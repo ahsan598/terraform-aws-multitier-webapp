@@ -97,17 +97,16 @@ ssh -i <your-key>.pem ec2-user@<ec2-public-ip>
      ```
 
   2. Connect to the RDS instance:
-   ```sh
-   mysql -h <rds-endpoint> -u <db-username> -p
-   ```
-   > You’ll be prompted to enter the database password.
+     ```sh
+     mysql -h <rds-endpoint> -u <db-username> -p
+     ```
+     > You’ll be prompted to enter the database password.
 
 - Access web app via EC2 public IP.
 
-> Note:
->  - Ensure that:
->     1. The RDS Security Group allows inbound traffic from the EC2 instance’s private IP or SG.
->     2. EC2 instance is in a public subnet with internet access (via IGW), and RDS is in a private subnet.
+> Ensure that:
+> - The RDS Security Group allows inbound traffic from the EC2 instance’s private IP or SG.
+> - EC2 instance is in a public subnet with internet access (via IGW), and RDS is in a private subnet.
 
 
 ### Step 5: Verify Outputs
