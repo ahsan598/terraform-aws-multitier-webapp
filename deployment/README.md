@@ -110,14 +110,22 @@ ssh -i <your-key>.pem ec2-user@<ec2-public-ip>
 
 
 ### Step 5: Verify Outputs
-- Check the `outputs.tf` file for outputs like EC2 instance IDs, public IPs, and RDS endpoints.
-- Run **terraform output** to view and validate the outputs.
+- Check the `outputs.tf` file for for declared outputs such as:
+  - EC2 Public IP
+  - RDS Endpoint
+  - VPC ID, Subnet IDs (if defined)
+  
+- Run the following command to display the outputs:
 ```sh
 terraform output
 ```
-Get values like:
-- EC2 Public IP
-- RDS Endpoint
+
+- This will return values provisioned by Terraform, useful for:
+  - SSH access to EC2
+  - Connecting to the RDS database
+  - Verifying infrastructure details
+
+> ✅ Use these values to test connectivity or integrate into other scripts/workflows.
 
 
 ### Step 6: Destroy Infrastructure (Optional)
