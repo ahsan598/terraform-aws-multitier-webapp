@@ -1,6 +1,6 @@
 # 🌐 Multi-Tier Web Application Deployment on AWS using Terraform
 
-This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for Infrastructure as Code (IaC). The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
+This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for **Infrastructure as Code (IaC)**. The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
 
 ### 🧰 Tools & Technologies Used
@@ -18,7 +18,7 @@ This project demonstrates how to deploy a **multi-tier web application on AWS** 
 
 ### 📌 Project Objectives
 
-- Automate AWS infrastructure provisioning using Terraform
+- Automate AWS infrastructure provisioning using **Terraform**
 - Deploy a scalable and secure **multi-tier architecture**
 - Practice **Infrastructure as Code** (IaC) using best practices
 - Understand real-world cloud components like **VPC, EC2, RDS, Security Groups**
@@ -53,11 +53,11 @@ multi-tier-terraform/
 ### ⚙️ What This Project Does
 
 1. **Creates a custom VPC** with public and private subnets.
-2. **Launches EC2 instances** in the public subnet for frontend/backend.
-3. **Configures Security Groups** to:
-   - Allow HTTP (port 80) access from the internet to EC2
+2. **Launches EC2 instances** in the public subnet for frontend.
+3. **Deploys an RDS instance** in the private subnet for backend.
+4. **Configures Security Groups** to:
+   - Allow HTTP on port 80 to access from the internet to EC2 & SSH (port 22) to ssh into EC2.
    - Allow EC2 to access RDS on port 3306 (or 5432 for PostgreSQL)
-4. **Deploys an RDS instance** in the private subnet.
 5. Outputs useful details like public IP of **EC2 and DB endpoint**.
 
 ---
