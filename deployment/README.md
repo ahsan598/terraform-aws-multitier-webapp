@@ -63,33 +63,34 @@ multi-tier-terraform/
 
 ### 🚧 Deployment Steps
 
-### Step 1: Initialize Project:
+### Step 1: Initialize Project
 - Navigate to your terraform project directory.
 - Run **terraform init** to initialize terraform and download provider plugins.
-```sh
-terraform init
-```
+  ```sh
+  terraform init
+  ```
 
-### Step 2: Plan the Infrastructure:
+### Step 2: Plan the Infrastructure
 - Ensure all `.tf` files (e.g., `main.tf`, `variables.tf`, `outputs.tf`, etc.) are properly configured.
 - Use **terraform plan** to review the resources terraform will create.
-```sh
-terraform plan
-```
+  ```sh
+  terraform plan
+  ```
 
 ### Step 3: Provision Infrastructure
 - Provision VPC, EC2, and RDS in stages or all together
 - Verify the created VPC and subnets in the AWS console.
-```sh
-terraform apply
-```
+  ```sh
+  terraform apply
+  ```
 
 ### Step 4: Validate Deployment
 - Access EC2 Instance via SSH:
   Use the key pair specified during provisioning:
-```sh
-ssh -i <your-key>.pem ec2-user@<ec2-public-ip>
-```
+  ```sh
+  ssh -i <your-key>.pem ec2-user@<ec2-public-ip>
+  ```
+
 - Verify RDS Connectivity from EC2:
   1. Install MySQL client (if not already installed):
      ```sh
@@ -116,9 +117,9 @@ ssh -i <your-key>.pem ec2-user@<ec2-public-ip>
   - VPC ID, Subnet IDs (if defined)
   
 - Run the following command to display the outputs:
-```sh
-terraform output
-```
+  ```sh
+  terraform output
+  ```
 
 - This will return values provisioned by Terraform, useful for:
   - SSH access to EC2
@@ -130,9 +131,9 @@ terraform output
 
 ### Step 6: Destroy Infrastructure (Optional)
 - Run **terraform destroy** in your project directory to tear down the complete infrastructure created by Terraform
-```sh
-terraform destroy
-```
+  ```sh
+  terraform destroy
+  ```
 
 ---
 
