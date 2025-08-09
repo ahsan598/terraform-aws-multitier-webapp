@@ -1,4 +1,4 @@
-# 🌐 Terraform AWS Multi-Tier Web Application Infrastructure
+# 	<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" width="30"/> Terraform AWS Multi-Tier Web Application Infrastructure
 
 This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for **Infrastructure as Code (IaC)**. The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
@@ -52,18 +52,18 @@ terraform-aws-multitier-webapp/
 
 ### 🧱 Architecture Overview
 
-![Project Diagram](https://github.com/ahsan598/terraform-aws-webapp-stack/blob/main/multi-tier%20app.png)
+![Project Diagram](https://github.com/ahsan598/terraform-aws-multitier-webapp/blob/main/screenshots/multi-tier%20app.png)
 
 ---
 
-### 🚀 How to Run This Project Locally (For Practice)
+### 🚀 How to Run This Project Locally
 
 > Make sure you have [Terraform](https://developer.hashicorp.com/terraform/downloads) and an [AWS account](https://aws.amazon.com/) with configured credentials (`aws configure`).
 
 
 **Step 1: Clone the repository**
 ```bash
-git clone https://github.com/yourusername/multi-tier-terraform.git
+git clone https://github.com/ahsan598/terraform-aws-multitier-webapp.git
 cd multi-tier-terraform
 ```
 
@@ -127,7 +127,7 @@ terraform destroy
 - Deploy autoscaling groups and load balancer (ALB)
 
 
-### 📚 Resources to Learn More
+### 📚 Learning Resources
 - [Terraform AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - [Terraform VPC Tutorial](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create)
 - [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/)
