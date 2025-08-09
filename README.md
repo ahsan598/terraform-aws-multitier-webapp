@@ -2,6 +2,15 @@
 
 This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for **Infrastructure as Code (IaC)**. The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
+---
+
+### 🎯 Project Objectives
+
+- Automate AWS infrastructure provisioning using **Terraform**
+- Deploy a scalable and secure **multi-tier architecture**
+- Practice **Infrastructure as Code** (IaC) using best practices
+- Understand real-world cloud components like **VPC, EC2, RDS, Security Groups**
+
 
 ### 🧰 Tools & Technologies Used
 
@@ -14,16 +23,6 @@ This project demonstrates how to deploy a **multi-tier web application on AWS** 
 | Security Groups| Acts as a virtual firewall to control inbound and outbound access |
 | AWS IAM        | Manages roles and permissions                                     |
 
----
-
-### 📌 Project Objectives
-
-- Automate AWS infrastructure provisioning using **Terraform**
-- Deploy a scalable and secure **multi-tier architecture**
-- Practice **Infrastructure as Code** (IaC) using best practices
-- Understand real-world cloud components like **VPC, EC2, RDS, Security Groups**
-
----
 
 ### 🗂️ Project Structure
 
@@ -50,7 +49,6 @@ terraform-aws-multitier-webapp/
    - Allow EC2 to access RDS on port 3306 (or 5432 for PostgreSQL)
 5. Outputs useful details like public IP of **EC2 and DB endpoint**.
 
----
 
 ### 🧱 Architecture Overview
 
@@ -62,38 +60,58 @@ terraform-aws-multitier-webapp/
 
 > Make sure you have [Terraform](https://developer.hashicorp.com/terraform/downloads) and an [AWS account](https://aws.amazon.com/) with configured credentials (`aws configure`).
 
-### Step 1: Clone the repository
+
+**Step 1: Clone the repository**
 ```bash
 git clone https://github.com/yourusername/multi-tier-terraform.git
 cd multi-tier-terraform
 ```
 
-### Step 2: Initialize Terraform
+**Step 2: Create a terraform.tfvars file**
+This file will hold your custom values for variables such as AWS region, VPC CIDR, database name, etc.
+**Ex:**
+```hcl
+aws_region = "us-east-1"
+vpc_cidr   = "10.0.0.0/16"
+db_name    = "mydb"
+db_user    = "admin"
+db_pass    = "StrongPassword123"
+```
+
+> **Note**: terraform.tfvars is ignored by .gitignore to prevent committing sensitive information.
+
+
+**Step 3: Initialize Terraform**
 ```bash
 terraform init
 ```
 
-### Step 3: Review and apply the plan
+**Step 4: Validate and Plan**
 ```bash
-terraform plan
-terraform apply
+terraform validate
+terraform plan -var-file="terraform.tfvars"
 ```
 
-### Step 4: Confirm outputs
-#### Terraform will display outputs like:
+**Step-5: Apply changes**
+```bash
+terraform apply -var-file="terraform.tfvars"
+```
+
+**Step 6: Confirm outputs**
+Terraform will display outputs like:
 ```bash
 ec2_public_ip = "13.234.56.78"
 rds_endpoint  = "mydb.xxxxxx.us-east-1.rds.amazonaws.com"
 ```
 
-### Step 5: Clean up (Optional)
+**Step 7: Clean up (Optional)**
 ```bash
 terraform destroy
 ```
 
 ---
 
-### 🧠 What You’ll Learn
+### 🧠 What I Have Learned
 - Building real-world infrastructure using Terraform modules
 - Using input variables and outputs efficiently
 - Structuring Terraform projects for clarity and reusability
@@ -113,7 +131,3 @@ terraform destroy
 - [Terraform VPC Tutorial](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create)
 - [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/)
 - [Learn Terraform Modules](https://developer.hashicorp.com/terraform/language/modules)
-
----
-
-🛠️ **This is a personal project aimed at learning purposes**
