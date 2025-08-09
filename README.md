@@ -1,10 +1,10 @@
-# 	<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" width="30"/> Terraform AWS Multi-Tier Web Application Infrastructure
+# 	<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" width="40"/> Terraform AWS Multi-Tier Web Application Infrastructure
 
 This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for **Infrastructure as Code (IaC)**. The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
 ---
 
-### 🎯 Project Objectives
+### 🎯 Objective
 
 - Automate AWS infrastructure provisioning using **Terraform**
 - Deploy a scalable and secure **multi-tier architecture**
@@ -12,7 +12,7 @@ This project demonstrates how to deploy a **multi-tier web application on AWS** 
 - Understand real-world cloud components like **VPC, EC2, RDS, Security Groups**
 
 
-### 🧰 Tools & Technologies Used
+### 🛠️ Tools & Technologies Used
 
 | Tool / Service | Purpose                                                           |
 |----------------|-------------------------------------------------------------------|
@@ -50,7 +50,7 @@ terraform-aws-multitier-webapp/
 5. Outputs useful details like public IP of **EC2 and DB endpoint**.
 
 
-### 🧱 Architecture Overview
+### 🏗️ Architecture Overview
 
 ![Project Diagram](https://github.com/ahsan598/terraform-aws-multitier-webapp/blob/main/screenshots/multi-tier%20app.png)
 
@@ -110,24 +110,17 @@ rds_endpoint  = "mydb.xxxxxx.us-east-1.rds.amazonaws.com"
 terraform destroy
 ```
 
----
 
-### 🧠 What I Have Learned
+### 📚 What I Have Learned
 - Building real-world infrastructure using Terraform modules
 - Using input variables and outputs efficiently
 - Structuring Terraform projects for clarity and reusability
 - Understanding cloud networking and tiered architecture
 - Applying security best practices with IAM and SGs
 
+---
 
-### 💡 Ideas to Extend This Project
-- Add Bastion Host or NAT Gateway for private subnet access
-- Use Terraform Cloud or S3 backend for remote state management
-- Integrate with Ansible or Jenkins for app deployment
-- Deploy autoscaling groups and load balancer (ALB)
-
-
-### 📚 Learning Resources
+### 🔗 Learning Resources
 - [Terraform AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - [Terraform VPC Tutorial](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create)
 - [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/)
