@@ -1,4 +1,4 @@
-# 🌐 Multi-Tier Web Application Deployment on AWS using Terraform
+# 🌐 Terraform AWS Multi-Tier Web Application Infrastructure
 
 This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for **Infrastructure as Code (IaC)**. The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
