@@ -1,5 +1,10 @@
 # 	<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" width="40"/> Terraform AWS Multi-Tier Web Application Infrastructure
 
+
+![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+
+
 This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for **Infrastructure as Code (IaC)**. The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
 ---
@@ -111,6 +116,16 @@ terraform destroy
 ```
 
 
+### 🧪 Terraform Commands (Quick Overview)
+
+| Command             | Description                                          |
+|---------------------|------------------------------------------------------|
+| `terraform init`    | Initialize working directory and download providers. |
+| `terraform plan`    | Show execution plan without making changes.          |
+| `terraform apply`   | Create or update infrastructure as per plan.         |
+| `terraform destroy` | Remove all managed infrastructure.                   |
+
+
 ### 📚 What I Have Learned
 - Building real-world infrastructure using Terraform modules
 - Using input variables and outputs efficiently
@@ -125,3 +140,4 @@ terraform destroy
 - [Terraform VPC Tutorial](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create)
 - [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/)
 - [Learn Terraform Modules](https://developer.hashicorp.com/terraform/language/modules)
+
