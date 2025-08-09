@@ -69,6 +69,7 @@ cd multi-tier-terraform
 
 **Step 2: Create a terraform.tfvars file**
 This file will hold your custom values for variables such as AWS region, VPC CIDR, database name, etc.
+
 **Ex:**
 ```hcl
 aws_region = "us-east-1"
