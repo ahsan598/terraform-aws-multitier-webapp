@@ -19,8 +19,8 @@ This project demonstrates how to deploy a **multi-tier web application on AWS** 
 ![AWS VPC](https://img.shields.io/badge/AWS%20VPC-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![AWS EC2](https://img.shields.io/badge/AWS%20EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white)
 ![AWS RDS](https://img.shields.io/badge/AWS%20RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white)
-![Security Groups](https://img.shields.io/badge/Security%20Groups-FF4F00?style=for-the-badge&logo=shield&logoColor=white)
-![AWS IAM](https://img.shields.io/badge/AWS%20IAM-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Security Groups](https://img.shields.io/badge/Security%20Groups-FF4F00?style=for-the-badge&logo=shield&logoColor=white)  
+![AWS IAM](https://img.shields.io/badge/AWS%20IAM-008000?style=for-the-badge&logo=amazonaws&logoColor=white)
 
 
 ### 📂 Project Components
