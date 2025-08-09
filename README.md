@@ -28,24 +28,14 @@ This project demonstrates how to deploy a **multi-tier web application on AWS** 
 ### 🗂️ Project Structure
 
 ```
-multi-tier-terraform/
+terraform-aws-multitier-webapp/
 ├── main.tf                # Calls modules and connects everything
 ├── variables.tf           # Input variables for main config
 ├── outputs.tf             # Outputs from modules
-├── terraform.tfvars       # Values for the variables
 ├── modules/               # Reusable modules
 │   ├── vpc/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   └── outputs.tf
 │   ├── ec2/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   └── outputs.tf
 │   └── rds/
-│       ├── main.tf
-│       ├── variables.tf
-│       └── outputs.tf
 └── README.md              # Project documentation
 ```
 

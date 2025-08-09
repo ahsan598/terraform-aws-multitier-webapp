@@ -43,3 +43,7 @@ Thumbs.db
 *.pub
 *.crt
 *.cer
+
+# Draw.io files
+*.drawio
+*.drawio.svg
