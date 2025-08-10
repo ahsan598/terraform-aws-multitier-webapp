@@ -1,5 +1,6 @@
 # 	<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" width="40"/> Terraform AWS Multi-Tier Web Application Infrastructure
 
+![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
 
 This project demonstrates how to deploy a **multi-tier web application on AWS** using **Terraform** for **Infrastructure as Code (IaC)**. The architecture includes a **frontend and backend** hosted on **EC2 instances**, with a **managed RDS database**, all secured and isolated within a custom **VPC**.
 
@@ -13,17 +14,7 @@ This project demonstrates how to deploy a **multi-tier web application on AWS** 
 - Understand real-world cloud components like **VPC, EC2, RDS, Security Groups**
 
 
-### 🛠️ Infrastructure & Tools
-
-![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
-![AWS VPC](https://img.shields.io/badge/AWS%20VPC-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
-![AWS EC2](https://img.shields.io/badge/AWS%20EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white)
-![AWS RDS](https://img.shields.io/badge/AWS%20RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white)
-![Security Groups](https://img.shields.io/badge/Security%20Groups-FF4F00?style=for-the-badge&logo=shield&logoColor=white)
-![AWS IAM](https://img.shields.io/badge/AWS%20IAM-008000?style=for-the-badge&logo=amazonaws&logoColor=white)
-
-
-### 📂 Project Components
+### 🛠️ Tools Used
 
 | Tool / Service | Purpose                                                           |
 |----------------|-------------------------------------------------------------------|
